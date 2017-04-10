@@ -1,0 +1,99 @@
+﻿Các lệnh thông dụng trên Linux (CentOS, Redhat)
+Các lệnh kiểm tra performance
+	cat /proc/cpuinfo     hiển thị thông tin CPU
+	cat /proc/meminfo     hiển thị thông tin về RAM đang sử dụng
+	cat /proc/version     hiển thị phiên bản của kernel
+	cat /proc/ioports    xem thông tin I/O port
+	cat /proc/interrupts  xem thông tin interrupt
+	cat /proc/dma   xem thông tin về DMA
+	cat /etc/redhat-release  hiển thị phiên bản Centos
+	uname -a  hiển thị các thông tin về kernel
+	free -m     hiển thị lượng RAM còn trống
+	df -h     hiển thị thông tin những file hệ thống nơi mỗi file thường trú hoặc tất cả những file mặc định và lệnh này có thể xem được dung lượng ổ cứng đã sử dụng và còn trống bao nhiêu.
+	du -sh     xem dung lượng của thư mục hiện tại
+	du  -ah    xem chi tiết dung lượng của các thư mục con, và cả các file
+	du -h –max-depth=1     xem dung lượng các thư mục con ở cấp 1 (ngay trong thư mục hiện tại)
+	df   kiểm tra dung lượng đĩa cứng, các phân vùng đĩa
+	top    hiển thị sự hoạt động của các tiến trình, đặc biệt là thông tin về tài nguyên hệ thống và việc sử dụng các tài nguyên đó của từng tiến trình.
+Các lệnh hệ thống
+	exit    thoát khỏi cửa sổ dòng lệnh.
+	logout    tương tự exit.
+	reboot / init 6 / shutdow -r    khởi động lại hệ thống.
+	halt / shutdow -h now / init 0 / poweroff     tắt máy
+	hostname  xem tên máy tính
+	startx    khởi động chế độ xwindows từ cửa sổ terminal.
+	clear    xoá trắng cửa sổ dòng lệnh.
+	hwclock    Fix lịch của bios
+	cal    xem lịch hệ thống.
+	yum update –y    Update Linux (CentOS)
+	date    xem ngày, giờ hệ thống.
+	date –s “27 SEP 2011 14:26:00”     Đặt ngày giờ hệ thống theo string
+	date +%Y%m%d -s “20130318″  đặt ngày hệ thống (không thay đổi giờ)
+	date +%T -s “00:29:00″  đặt giờ hệ thống, không thay đổi ngày
+Lệnh thao tác với tập tin text
+	  wc    đếm số dòng, số kí tự… trong tập tin
+	touch    tạo một tập tin.
+	  cat    xem nội dung tập tin.
+	  more  xem nội dung tập tin theo trang.
+	   less  xem nội dung tập tin theo dòng.
+	  tail  xem nội dung tập tin (mặc định xem 10 dòng cuối).
+	   head  xem nội dung tập tin (mặc định xem 10 dòng đầu).
+	   vi    khởi động trình soạn thảo văn bản vi.
+	   man    Xem hướng dẫn thực hiện các lệnh
+Lệnh quản lí ứng dụng và tiến trình
+	    rpm     kiểm tra, gỡ bỏ hoặc cài đặt 1 gói .rpm
+	    ps    kiểm tra hệ thống tiến trình đang chạy.
+	    kill    dừng tiến trình khi tiến trình bị treo.
+	    pstree    hiển thị tất cả các tiến trình dưới dạng cây.
+	    sleep    cho hệ thống ngừng hoạt động trong một khoảng thời gian.
+	    yum    Cài đặt các ứng dụng đóng gói (giống rpm)
+	    wget    Tải các ứng dụng từ một website về
+	    sh    Chạy một ứng dụng có đuôi .sh
+Lệnh quản lý user
+	   useradd    tạo một người dùng mới.
+	  userdel    xoá người dùng đã tạo.
+	   usermod   thay đổi thông tin user.
+	  passwd   đặt và thay đổi password cho người dùng.
+	    groupadd    tạo một nhóm người dùng mới.
+	    groupdel    xoá nhóm người dùng đã tạo.
+	    gpasswd     thay đổi password của một nhóm người dùng.
+	    su     cho phép đăng nhập với tư cách người dùng khác.
+	    groups     hiển thị nhóm của user hiện tại.
+	    who / w    cho biết ai đang đăng nhập hệ thống.
+	    skill -9 –t pst/0    để gỡ bỏ session pst/0
+	    xem danh sách user: #vi /etc/passwd
+	    xem danh sách nhóm: #vi /etc/group
+	    chmod <permission> [tên file]   thay đổi quyền cho file/thư mục (chỉ user sở hữu file mới thực hiện được)
+	    chown user [tên file]   thay đổi chủ sở hữu file/thư mục
+	    chown user:group [tên file]  thay đổi chủ sở hữu file/thư mục, đồng thời thay đổi nhóm sở hữu
+	chgrp group [file/thu_muc] thay đổi group sở hữu file/thư mục
+Lệnh quản lý service
+	    service –status-all    Kiểm tra tất cả các service và tình trạng của nó.
+	    service httpd start    khởi động dịch vụ httpd.
+	    whereis mysql    hiển thị nơi các file dịch vụ được cài đặt.
+	    service –status-all | grep abc, xem tình trạng của tiến trình abc
+	    service <tên_dịch_vụ> start | stop | restart
+	    /etc/init.d/<tên_dịch_vụ>  start | stop | restart
+Các lệnh quản lý file và thư mục
+	ls      xem danh sách các file và thư mục con trong thư mục hiện thời
+	ls -l   như trên, nhưng liệt kê cả kích thước file, ngày cập nhật…
+	ls -a   liệt kê tất cả các file ẩn
+	rm    xóa file
+	rmdir   xóa thư mục rổng
+	rm -rf       xóa thư mục không rỗng.
+	mv    đổi tên / di chuyển thư mục hoặc file từ nơi này sang nơi khác
+	cp   copy file hoặc thư mục
+	mkdir   tạo thư mục
+	cd   chuyển thư mục
+	pwd  xem thư mục hiện hành
+	find  tìm kiếm file
+	find  /etc  -name  inittab : tìm file có tên inittab trong thư mục /etc
+Lệnh nén và giải nén
+	tar  -cvf    nén file/thư mục sang định dạng .tar
+	tar  -xvf    giải nén file .tar
+	gzip chuyển file .tar sang .tar.gz
+	gunzip chuyển file .tar.gz về .tar
+	tar -xzf  giải nén file  .tar.gz
+	tar -zxvf  giải nén file .tar.bz2
+	tar -jxvf   giải nén file .tar.gz2
+
